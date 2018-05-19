@@ -2,10 +2,9 @@
 
 ## Motivation
 
-The motivation behind this is to be able to build and distribute a highly
-portable development machine with all configuration and tooling I need in
-my day to day work, ready to be used locally or on a server out of the
-box.
+The motivation behind this is to enable building a lightweight and highly
+portable development environment with all configuration and tooling I
+need in a daily basis.
 
 For instance, the current configuration provides the following setup:
 
@@ -14,6 +13,9 @@ For instance, the current configuration provides the following setup:
 - `vim` editor.
 - `git`, `curl`, `fzf`, `jq` and some other tools.
 - My [dotfiles](https://github.com/danguita/dotfiles).
+
+It is now based on [Alpine Linux](https://alpinelinux.org/)'s edge branch
+for minimal footprint and extra package support.
 
 ## Usage
 
