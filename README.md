@@ -22,37 +22,32 @@ for minimal footprint and extra package support.
 ### Build
 
 ```shell
-$ make build
-```
-
-#### Using a custom Docker registry
-
-```shell
-$ DOCKER_IMAGE_NAME=wadus.davidanguita.name:5000/danguita/shell make build
+$ DOCKER_IMAGE_NAME=danguita/shell DOCKER_IMAGE_TAG=latest make build
 ```
 
 ### Run
 
 ```shell
+$ DOCKER_IMAGE_NAME=danguita/shell DOCKER_IMAGE_TAG=latest make run
+```
+
+Which transforms into:
+
+```shell
 $ docker run -it --rm \
---net=host \                             # Use host networking, optionally.
--v "$(pwd):/workspace" \                 # Mount `pwd` at `/workspace`.
--v "$HOME/.ssh:/root/.ssh" \             # Mount SSH config, optionally.
--v "$HOME/.gnupg:/root/.gnupg" \         # Mount GPG config, optionally.
--v "$HOME/.gitconfig:/root/.gitconfig" \ # Mount Git config, optionally.
-danguita/shell:latest
+  --net=host \                             # Use host networking, optionally.
+  -v "$(pwd):/workspace" \                 # Mount `pwd` at container's `/workspace`.
+  -v "$HOME/.ssh:/root/.ssh" \             # Mount SSH config, optionally.
+  -v "$HOME/.gnupg:/root/.gnupg" \         # Mount GPG config, optionally.
+  -v "$HOME/.gitconfig:/root/.gitconfig" \ # Mount Git config, optionally.
+  danguita/shell:latest
 ```
 
 ### Release
 
 ```shell
-$ make release
-```
-
-#### Using a custom Docker registry
-
-```shell
-$ DOCKER_IMAGE_NAME=wadus.davidanguita.name:5000/danguita/shell make release
+$ DOCKER_IMAGE_NAME=danguita/shell DOCKER_IMAGE_TAG=latest DOCKER_REGISTRY_URL=docker.io \
+  make release
 ```
 
 ## License
