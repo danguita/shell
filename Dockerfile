@@ -6,7 +6,7 @@ ENV LANG=C.UTF-8
 ENV DOTFILES=/dotfiles
 ENV WORKSPACE=/workspace
 ENV SHELL=/bin/zsh
-ENV EDITOR=vim
+ENV EDITOR=nvim
 
 RUN apk add --update --no-cache \
       tzdata \
@@ -20,6 +20,7 @@ RUN apk add --update --no-cache \
       ctags \
       ruby \
       ruby-rake \
+      neovim \
       vim \
       fzf
 
