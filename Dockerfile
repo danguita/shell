@@ -20,10 +20,20 @@ RUN apk add --update --no-cache \
       ctags \
       ruby \
       ruby-rake \
+      ruby-json \
+      ruby-rdoc \
+      ruby-irb \
       neovim \
       vim \
       fzf \
+      nodejs \
+      npm \
       the_silver_searcher
+
+RUN set -ex \
+      && apk add --update --no-cache --virtual .build-deps build-base ruby-dev zlib-dev \
+      && gem install solargraph bundler bundler:1.17.2 \
+      && apk del .build-deps
 
 ARG CACHEBUST=1
 RUN git clone --depth 1 https://github.com/danguita/dotfiles.git $DOTFILES \
