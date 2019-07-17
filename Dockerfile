@@ -22,7 +22,8 @@ RUN apk add --update --no-cache \
       ruby-rake \
       neovim \
       vim \
-      fzf
+      fzf \
+      the_silver_searcher
 
 ARG CACHEBUST=1
 RUN git clone --depth 1 https://github.com/danguita/dotfiles.git $DOTFILES \
